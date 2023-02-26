@@ -61,13 +61,14 @@ fn app() -> Html {
                 print!("wut");
                 let videos = videos.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    let fetched_videos: Vec<Video> = Request::get("/tutorial/data.json")
-                        .send()
-                        .await
-                        .unwrap()
-                        .json()
-                        .await
-                        .unwrap();
+                    let fetched_videos: Vec<Video> =
+                        Request::get("https://yew.rs/tutorial/data.json")
+                            .send()
+                            .await
+                            .unwrap()
+                            .json()
+                            .await
+                            .unwrap();
                     videos.set(fetched_videos);
                 });
                 || ()
