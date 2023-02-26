@@ -61,14 +61,15 @@ fn app() -> Html {
                 print!("wut");
                 let videos = videos.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    let fetched_videos: Vec<Video> =
-                        Request::get("https://yew.rs/tutorial/data.json")
-                            .send()
-                            .await
-                            .unwrap()
-                            .json()
-                            .await
-                            .unwrap();
+                    let fetched_videos: Vec<Video> = Request::get(
+                        "https://run.mocky.io/v3/598d00a8-d48d-4aa0-bf34-b6b3f1727653",
+                    )
+                    .send()
+                    .await
+                    .unwrap()
+                    .json()
+                    .await
+                    .unwrap();
                     videos.set(fetched_videos);
                 });
                 || ()
