@@ -25,8 +25,9 @@ struct VideosDetailsProps {
 fn video_details(VideosDetailsProps { video }: &VideosDetailsProps) -> Html {
     html! {
         <div>
+            <h3>{ "You Clicked:" }</h3>
             <h3>{ video.title.clone() }</h3>
-            <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder" alt="video thumbnail" />
+            <a href={video.url.clone()} target="_blank">{video.url.clone()}</a>
         </div>
     }
 }
